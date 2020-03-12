@@ -1,0 +1,177 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.wrap{
+	color:#666;
+	font-size:14px;
+	box-sizing: border-box;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+
+/* 头部 */
+header{
+	position: fixed;
+	width: 100%;
+	height: 90px;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,.8);
+	z-index: 999;
+}
+.nav{
+	display:flex;
+	justify-content:space-between;
+	width:100%;
+	height:100%;
+	padding: 0 18px;
+	box-sizing:border-box;
+}
+h1{
+	display:flex;
+	font-size:0;
+}
+.logo{
+	width:154px;
+	height:70px;
+	margin-top: 10px;
+}
+.nav-list{
+	display: flex;
+	justify-content:space-between;
+	width:692px;
+}
+.nav-list li{
+	height:100%;
+	padding: 0 16px;
+}
+.nav-list li a{
+	display: table-cell;
+	padding: 0 16px;
+	line-height: 90px;
+	white-space:nowrap; 
+	color: #fff;
+}
+.nav-list li a:hover,.nav-list li .active{
+	border-bottom: solid 1px #f52527;
+	color: #f52527;
+}
+
+/* banner */
+.banner{
+	width:100%;
+	height: 480px;
+	background: url(../img/images/banner_case.jpg) no-repeat center;
+}
+.container{
+	width:100%;
+	height:100%;
+	padding: 0 18px;
+	box-sizing: border-box;
+	border: solid 1px rgba(0,0,0,0);
+}
+.banner-txt{
+	margin-top: 220px;
+	margin-left: 8%;
+	color:#fff;
+}
+.banner-txt-1{
+	font-size: 56px;
+    font-weight: normal;
+    line-height: 66px;
+	margin: 0;
+}
+.banner-txt-2{
+	font-size: 28px;
+    line-height: 46px;
+	margin: 0;
+}
+
+/* 成功案例 */
+.case-show{
+	width:100%;
+	padding:68px 0 50px;
+}
+.case-show-title{
+	margin-top:0;
+	padding:0;
+	font-weight:normal;
+	font-size:24px;
+	line-height:38px;
+	text-align:center;
+}
+.case-show-list li{
+	display: flex;
+	margin: 24px 0 48px;
+	padding: 30px 3.5%;
+	box-shadow: 1px 3px 13px 1px rgba(0, 0, 0, 0.07);
+}
+.case-item-img{
+	width: 50%;
+	padding: 0 4%;
+}
+.case-item-about{
+	width: 50%;
+	padding: 0 4%;
+}
+.case-item-about img{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 8px;
+}
+.case-item-txt{
+	font-size: 14px;
+	line-height: 24px;
+}
+.case-item-txt p{
+	margin: 0;
+}
+/* 底部 */
+.case-footer{
+	width: 100%;
+	height: 158px;
+	background: #2b2b2b;
+}
+.case-footer .container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footer-logo{
+	width: 105px;
+	height: 46px;
+}
+.footer-about{
+	
+}
+.footer-about p{
+	padding-left: 20px;
+	color:#b5b5b5;
+	line-height: 22px;
+}
+.footer-copyright{
+	padding: 5px 10px 5px 20px;
+	color: #7a7a7a;
+	line-height: 20px;
+}
+.footer-qr{
+	display: flex;
+	flex-direction: column;
+}
+.footer-qr img{
+	width: 100px;
+	height: 100px;
+}
+.footer-qr span{
+	text-align: center;
+	color:#6e7079;
+	font-size:12px;
+	line-height: 30px;
+}

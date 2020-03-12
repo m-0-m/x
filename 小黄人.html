@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>小黄人</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			/* 边框区域 */
+			.wrap{
+				width: 400px;
+				height: 600px;
+				margin: 20px auto;
+				border: 1px solid yellow;
+				position: relative;
+			}
+			/* 小黄人身体 */
+			.xhr-body{
+				width: 250px;
+				height: 400px;
+				border: 5px solid black;
+				background: yellow;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				border-radius: 125px;
+				overflow: hidden;
+			}
+			/* 小黄人头发 */
+			.xhr-hair-1,.xhr-hair-2{
+				width: 130px;
+				height: 100px;
+				border-top: 10px solid black;
+				border-radius: 75px;
+				position: absolute;
+			}
+			.xhr-hair-1{
+				top: 80px;
+				left: 100px;
+				transform: rotate(45deg);
+			}
+			.xhr-hair-2{
+				top: 70px;
+				left: 102px;
+				transform: rotate(45deg);
+			}
+			/* 小黄人眼睛 */
+			.xhr-eye{
+				position: absolute;
+				top: 60px;
+				left: 25px;
+				width: 200px;
+				height: 100px;
+			}
+			.xhr-eye-l,.xhr-eye-r{
+				width: 90px;
+				height: 90px;
+				border: 5px solid black;
+				border-radius: 100%;
+				float: left;
+				background: #fff;
+			}
+			.xhr-eye-l::after,.xhr-eye-r::after{
+				content: " ";
+				position: absolute;
+				width: 30px;
+				height: 20px;
+				background: #000;
+				top: 35px;
+			}
+			.xhr-eye-l::after{
+				border-radius: 0 8px 0 0;
+				left: -26px;
+				transform: rotate(20deg);
+			}
+			.xhr-eye-r::after{
+				border-radius: 8px 0 0 0;
+				right: -26px;
+				transform: rotate(-20deg);
+			}
+			.eye-l-block,.eye-r-block{
+				position: absolute;
+				top: 50%;
+				margin-top: -22.5px;
+				margin-left: -22.5px;
+				width: 45px;
+				height: 45px;
+				background: #000;
+				border-radius: 100%;
+			}
+			.eye-l-block{
+				left: 25%;
+				
+			}
+			.eye-r-block{
+				left: 75%;
+			}
+			.eye-l-white,.eye-r-white{
+				position: absolute;
+				width: 50%;
+				height: 50%;
+				background: #fff;
+				border-radius: 100%;
+				top: 50%;
+				margin-top: -11px;
+			}
+			.eye-l-white{
+				right: 5px;
+			}
+			.eye-r-white{
+				left: 5px;
+				
+			}
+			/* 小黄人嘴巴 */
+			.xhr-mouth{
+				width: 60px;
+				height: 35px;
+				border: 5px solid #000;
+				background: #fff;
+				position: absolute;
+				left: 90px;
+				top: 180px;
+				transform: rotate(-30deg);
+				border-radius:0 0 0 30px;
+			}
+			.xhr-mouth::after{
+				content: "";
+				position: absolute;
+				width: 82px;
+				height: 40px;
+				border-bottom: 5px solid #000;
+				left: 0px;
+				top: -23px;
+				background: yellow;
+				transform: rotate(30deg);
+			}
+			/* 小黄人裤子 */
+			.xhr-trousers{
+				position: absolute;
+				width: 100%;
+				height: 150px;
+				top: 260px;
+				
+			}
+			.xhr-trousers-t{
+				position: absolute;
+				width: 150px;
+				height: 50px;
+				border: 5px solid black;
+				border-bottom: none;
+				left: 45px;
+				background: blue;
+				z-index: 1;
+			}
+			.trousers-t-l,.trousers-t-r{
+				position: absolute;
+				width: 100px;
+				height: 20px;
+				border: 5px solid black;
+				top: -24px;
+				background: blue;
+			}
+			.trousers-t-l{
+				left: -74px;
+				transform: rotate(35deg)
+			}
+			.trousers-t-r{
+				right: -74px;
+				transform: rotate(-35deg)
+			}
+			.trousers-t-l::after,.trousers-t-r::after{
+				content: " ";
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				top: 5px;
+				background: #000;
+				border-radius: 100%;
+			}
+			.trousers-t-l::after{
+				left: 87px;
+			}
+			.trousers-t-r::after{
+				left: 3px;
+			}
+			.xhr-trousers-b{
+				position: absolute;
+				width: 250px;
+				height: 86px;
+				top: 49.5px;
+				left: 0;
+				background: blue;
+				border-top: 5px solid #000;
+			}
+			/* 小黄人手 */
+			.xhr-hand-l,.xhr-hand-r{
+				position: absolute;
+				top: 300px;
+				width: 100px;
+				height: 100px;
+				border: 5px solid black;
+				background: yellow;
+				border-radius: 30px;
+				z-index: -1;
+			}
+			.xhr-hand-l{
+				left: 50px;
+				transform: rotate(30deg);
+			}
+			.xhr-hand-r{
+				right: 50px;
+				transform: rotate(-30deg);
+			}
+			.xhr-hand-l::after,.xhr-hand-r::after{
+				content: " ";
+				position: absolute;
+				width: 50px;
+				height: 10px;
+				top: 50px;
+				background: #000;
+				border-radius: 5px;
+			}
+			.xhr-hand-l::after{
+				left: 0;
+				transform: rotate(-90deg);
+			}
+			.xhr-hand-r::after{
+				right: 0;
+				transform: rotate(90deg);
+			}
+			/* 小黄人脚 */
+			.xhr-foot-l,.xhr-foot-r{
+				position: absolute;
+				width: 40px;
+				height: 70px;
+				top: 495px;
+				background: #000;
+				z-index: -1;
+			}
+			.xhr-foot-l{
+				left: 155px;
+			}
+			.xhr-foot-r{
+				right: 155px;
+			}
+			.xhr-foot-l::after,.xhr-foot-r::after{
+				content: " ";
+				position: absolute;
+				width: 60px;
+				height: 40px;
+				background: #000;
+				top: 30px;
+				border-radius: 30px;
+			}
+			.xhr-foot-l::after{
+				left: -40px;
+			}
+			.xhr-foot-r::after{
+				right: -40px;
+			}
+			/* 头发动画 */
+			.xhr-hair-1,.xhr-hair-2{
+				animation: hair 5s linear infinite;
+			}
+			@keyframes hair{
+				0%,50%,100%{
+					transform: rotate(45deg);
+				}
+				25%,75%{
+					transform: rotate(65deg);
+				}
+			}
+			/* 眼睛动画 */
+			.eye-l-block,.eye-r-block{
+				animation: eyeBlock 5s linear infinite;
+			}
+			@keyframes eyeBlock{
+				0%,50%,100%{
+					transform: translate(0,0);
+				}
+				25%{
+					transform: translate(-20px,0);
+				}
+				75%{
+					transform: translate(20px,0);
+				}
+			}
+			.eye-l-white,.eye-r-white{
+				animation: eyeWhite 5s linear infinite;
+			}
+			@keyframes eyeWhite{
+				0%,50%,100%{
+					transform: translate(0,0);
+				}
+				25%,75%{
+					transform: translate(2px,3px);
+				}
+			}
+		</style>
+	</head>
+	<!-- 
+		1.制作小黄人的容器
+		w400
+		h600
+		b1
+		2.添加小黄人的头发
+		w130
+		h100
+		b10
+		l100t8045deg
+		l102t7050deg
+		3.添加小黄人的身体
+		w250
+		h400
+		b5
+		4.添加小黄人的眼睛
+		t60l25
+		lr:
+		w90h90b5
+		5.添加小黄人的眼镜腿
+		::
+		w30h20
+		l:l-26t35r20deg
+		r:r-26t35r-20deg
+		6.添加小黄人的眼珠
+		w50h50
+		l:
+		l25t25
+		r:
+		r25t25
+		::
+		w20h20
+		l:
+		l50t40
+		r:
+		r50t40
+		7.添加小黄人的嘴巴
+		w60h35b5
+		l90t180r-30deg
+		::
+		w90h40b5l1t-22r30deg
+		8.添加小黄人的裤子
+		w100%
+		h150
+		t260
+		t:
+		w150h50b5l45
+		b:
+		w250h85t50
+		jd:
+		w100h20b5t-24
+		l:
+		l-74r35deg
+		r:
+		r-74r-35deg
+		::
+		w10h10t5
+		l:l87
+		r:l3
+		9.添加小黄人的手臂
+		w100
+		h100
+		b5
+		l50r50
+		t300
+		l30degr-30deg
+		::w50
+		h10
+		l6r6
+		t60
+		l-90degr-90deg
+		10.添加小黄人的腿脚
+		w40
+		h70
+		l155t495
+		r155t495
+		::
+		w60
+		h40
+		l-40t30
+		r-40t30
+		11.添加小黄人的头发和眼珠的动画效果 
+		
+	-->
+	<body>
+		<!-- 边框区域 -->
+		<div class="wrap">
+			<!-- 小黄人头发 -->
+			<div class="xhr-hair-1"></div>
+			<div class="xhr-hair-2"></div>
+			<!-- 小黄人身体 -->
+			<div class="xhr-body">
+				<!-- 小黄人眼睛 -->
+				<div class="xhr-eye">
+					<!-- 小黄人左眼睛 -->
+					<div class="xhr-eye-l">
+						<div class="eye-l-block">
+							<div class="eye-l-white"></div>
+						</div>
+					</div>
+					<!-- 小黄人右眼睛 -->
+					<div class="xhr-eye-r">
+						<div class="eye-r-block">
+							<div class="eye-r-white"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 小黄人嘴巴 -->
+				<div class="xhr-mouth"></div>
+				<!-- 小黄人裤子 -->
+				<div class="xhr-trousers">
+					<div class="xhr-trousers-t">
+						<!-- 小黄人左边裤带 -->
+						<div class="trousers-t-l"></div>
+						<!-- 小黄人右边裤带 -->
+						<div class="trousers-t-r"></div>
+					</div>
+					<div class="xhr-trousers-b"></div>
+				</div>
+			</div>
+			<!-- 小黄人手 -->
+			<!-- 小黄人左手 -->
+			<div class="xhr-hand-l"></div>
+			<!-- 小黄人右手 -->
+			<div class="xhr-hand-r"></div>
+			<!-- 小黄人脚 -->
+			<!-- 小黄人左脚 -->
+			<div class="xhr-foot-l"></div>
+			<!-- 小黄人右脚 -->
+			<div class="xhr-foot-r"></div>
+		</div>
+	</body>
+</html>
